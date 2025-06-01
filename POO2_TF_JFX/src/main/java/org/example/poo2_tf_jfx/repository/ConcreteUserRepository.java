@@ -137,10 +137,7 @@ public class ConcreteUserRepository implements UserRepository {
         stmt.setInt(1, id);
         ResultSet rs = stmt.executeQuery();
         if (rs.next()) {
-            // Aquí solo pongo ejemplo mínimo, ajustamos según el modelo Profile que tengas
-            // La clase Profile la trabajamos después, pero algo básico:
             String profession = rs.getString("profession");
-            // Para jobSkills, habrá que consultar tabla relacionada, lo haremos cuando trabajemos Profile.
             return new Profile(profession, new ArrayList<>(), rs.getString("description"));
         }
         return null;
